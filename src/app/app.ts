@@ -24,4 +24,11 @@ export class App {
     lastname: "fastname1",
     email: "lastname1@aueb.com"
   }
+
+  Person2 :IPerson = {
+    firstname: "firstname2",
+    lastname: "fastname2",
+    email: "lastname2@aueb.com"
+  }
+
 }
