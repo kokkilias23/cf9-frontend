@@ -35,4 +35,4 @@ export const ManyPersons: IPerson[] = [
     {"firstname":"George","lastname":"Klimowicz","email":"gklimowiczr@gmpg.org"},
     {"firstname":"Charlotte","lastname":"Hallwell","email":"challwells@bravesites.com"},
     {"firstname":"Deane","lastname":"Cliffe","email":"dcliffet@shinystat.com"}
-]
+  ]

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {IPerson} from "../../shared/interfaces/person";
+import { IPerson } from '../../shared/interfaces/person';
 
 @Component({
   selector: 'app-step8-simple-data-table',
@@ -8,5 +8,5 @@ import {IPerson} from "../../shared/interfaces/person";
   styleUrl: './step8-simple-data-table.css',
 })
 export class Step8SimpleDataTable {
-  @Input() data: IPerson[] | undefined;
+  @Input() data:IPerson[] | undefined;
 }

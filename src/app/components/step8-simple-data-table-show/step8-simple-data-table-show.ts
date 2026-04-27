@@ -9,5 +9,5 @@ import { Step8SimpleDataTable } from '../step8-simple-data-table/step8-simple-da
   styleUrl: './step8-simple-data-table-show.css',
 })
 export class Step8SimpleDataTableShow {
-  manyPersons = ManyPersons;
+  manyPerson = ManyPersons;
 }
