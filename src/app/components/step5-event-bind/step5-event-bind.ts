@@ -11,6 +11,7 @@ export class Step5EventBind {
 
   incrementTimes() {
     this.times++;
+    console.log("Increment>>>",this.times);
     // this.times = this.times+1;
   }
 
