@@ -13,13 +13,9 @@ export const routes: Routes = [
   {path:'component-input-example', component:Step3PersonTableInput},
   {path:'for-directive-example', component:Step4ForDirective},
   {path:'event-bind-example',component:Step5EventBind},
-<<<<<<< HEAD
-  {path: 'component-output-example', component:Step9ComponentOutput},
-=======
   {path:'simple-datatable-example', component:Step8SimpleDataTableShow},
   {path:'component-output-example', component:Step9ComponentOutput },
   {path:'template-driven-form-example', component:Step10TemplateDrivenForms},
->>>>>>> ca26cea4b62656505ab318355098c75763a7d28a
   {path:'welcome', component:Step6Welcome},
   {path:'simple-data-table', component:Step8SimpleDataTableShow},
   {path:'', redirectTo:'/welcome', pathMatch:'full'}
