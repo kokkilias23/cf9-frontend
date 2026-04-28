@@ -14,5 +14,6 @@ export class Step7ListGroupMenu {
     { text: "Step4 @for Directive", appLink:'for-directive-example'},
     { text: "Step5 Event Bind", appLink:'event-bind-example'},
     { text: "Step8 Simple Datatable", appLink:'simple-datatable-example'},
-    { text: "Step9 Component Output", appLink:'component-output-example'}]
+    { text: "Step9 Component Output", appLink:'component-output-example'},
+    { text: "Step10 Template Forms", appLink:'template-driven-form-example'}]
 }
