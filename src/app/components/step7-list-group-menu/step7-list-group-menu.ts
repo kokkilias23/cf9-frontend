@@ -15,9 +15,14 @@ export class Step7ListGroupMenu {
     { text: "Step5 Event Bind", appLink:'event-bind-example'},
     { text: "Step8 Simple Datatable", appLink:'simple-datatable-example'},
 <<<<<<< HEAD
+<<<<<<< HEAD
     { text: "Step9 Component Output", appLink:'component-output-example'}
 =======
     { text: "Step9 Output Example", appLink: 'component-output-example'}
 >>>>>>> f860837d23cccde0cb7c38c244ac2c810c4d93b7
+=======
+    { text: "Step9 Output Example", appLink: 'component-output-example'},
+    { text: "Step10 Template Forms", appLink:'template-driven-form-example'}
+>>>>>>> ca26cea4b62656505ab318355098c75763a7d28a
   ]
 }
