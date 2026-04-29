@@ -16,14 +16,18 @@ export class Step8SimpleDataTable {
     // console.log("NG ON INIT 1>>>", this.sortOrder);
     // this.sortOrder['firstname'] = 'asc';
     // this.data = sortBy(this.data, 'firstname');
-    // this.sortData('firstname');
-    // /console.log("NG ON INIT 2>>>", this.sortOrder);
-  }
+    this.sortData('firstname');
+    // console.log("NG ON INIT 2>>>", this.data);
+  };
 
-  // ngOnChanges(changes: SimpleChanges<IPerson>) {
-  //   // changes.userId contains the old and new value.
-  //   console.log("ON CHANGESs",changes);
-  // }
+  ngOnChanges(changes: SimpleChanges) {
+    // console.log("Changes>>",changes)
+    // console.log("Changes Data>>",changes['data'])
+    if (changes['data'] && this.data) {
+      // console.log("On If", this.data);
+      this.sortData('firstname')
+    }
+  }
 
   sortOrder = {
     firstname: 'none',
@@ -33,7 +37,7 @@ export class Step8SimpleDataTable {
 
   sortData(sortKey: keyof IPerson) {
     console.log("STEP 8", this.data);
-    console.log("SortData", this.sortOrder[sortKey], sortKey);
+    // console.log("SortData", this.sortOrder[sortKey], sortKey);
     if (this.sortOrder[sortKey] === 'asc') {
       this.sortOrder[sortKey]='desc';
       this.data = sortBy(this.data, sortKey).reverse();
