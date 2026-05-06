@@ -1,13 +1,14 @@
-import { Injectable, inject,signal } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { GoogleClientId } from '../config';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { environment } from '../../../environments/environment';
 import { IGoogleUser } from '../interfaces/google-user.interface';
+import { UserService } from './user.service';
 
 const API_AUTH_URL = `${environment.apiURL}/api/auth/google-auth`;
-declare const google: any;
+declare const google:any;
 
 @Injectable({
   providedIn: 'root',
@@ -15,23 +16,41 @@ declare const google: any;
 export class GoogleService {
   http: HttpClient = inject(HttpClient);
   router = inject(Router);
+  userService = inject(UserService)
 
-  googleUser = signal<IGoogleUser | null>(null);
+  googleUser = signal<IGoogleUser | null>(null)
 
-  initializeGoogleSignIn() {
+  initializeGoogleSignIn(){
     google.accounts.id.initialize({
       client_id: GoogleClientId,
-      callback: (response: any) => this.handleCredentials(response),
+      callback: (response: any) => this.handleCredentials(response)
     });
-
-     google.accounts.id.prompt();
-    // google.accounts.id.renderButton(
-    //   document.getElementById('google-signin-button'),
-    //   { theme: 'outline', size: 'large' }
-    // );
+    google.accounts.id.prompt();
     return google;
   }
-  handleCredentials(response: any) {
-    console.log(response);
+
+  handleCredentials(response:any) {
+    // console.log("1>>>>", response);
+    const idToken = response.credential;
+    this.loginGoogle(idToken)
+      .subscribe({
+        next: (res) =>{
+          // console.log(res)
+          const decodedToken= jwtDecode(res.token) as IGoogleUser;
+          console.log(decodedToken);
+          localStorage.setItem('google-access-token', res.token);
+          this.userService.user.set({
+            username: decodedToken.name,
+            email: decodedToken.email,
+            roles: decodedToken.roles
+          })
+        },
+        error: (err) => console.log("Problem in google login", err)
+      })
+  }
+
+  loginGoogle(token:string){
+    // console.log("TOKEN", token)
+    return this.http.post<{token:string}>(`${API_AUTH_URL}`, {token})
   }
 }

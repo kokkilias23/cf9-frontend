@@ -8,10 +8,10 @@ import {
 import {jwtDecode} from 'jwt-decode'; 
 import { Credentials, LoggedInUser } from '../../shared/interfaces/user-login.interface';
 import { UserService } from '../../shared/services/user.service';
-import { Router, withDebugTracing } from '@angular/router';
+import { Router } from '@angular/router';
 import { GoogleService } from '../../shared/services/google.service';
 
-declare let google: any;
+declare let google: any
 
 @Component({
   selector: 'app-step13-user-login',
@@ -33,14 +33,15 @@ export class Step13UserLogin {
   ngOnInit(){
     google = this.googleService.initializeGoogleSignIn();
     google.accounts.id.renderButton(
-      document.getElementById('googleBtn'),
-      { 
+      document.getElementById("googleBtn"),
+      {
         theme: 'outline',
-         size: 'large',
+        size: 'large',
         shape: 'rectangular',
-      logo_aligment: 'center',
-       width: '250',}
-    );
+        logo_alignment:'center',
+        width:'50%'
+      }
+    )
   }
 
   onSubmit(){
