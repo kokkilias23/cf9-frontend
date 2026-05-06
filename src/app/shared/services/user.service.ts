@@ -5,8 +5,10 @@ import { Credentials, LoggedInUser } from '../interfaces/user-login.interface';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
+import { IUser } from '../interfaces/mongo-user.interface';
 
 const API_AUTH_URL = `${environment.apiURL}/api/auth`;
+const API_USER_URL = `${environment.apiURL}/api/users`;
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +44,10 @@ export class UserService {
       `${API_AUTH_URL}/login`, 
       data
     )
+  }
+
+  registerUser(user: IUser){
+    return this.http.post<IUser>(`${API_USER_URL}`, user);
   }
 
   logoutUser(){

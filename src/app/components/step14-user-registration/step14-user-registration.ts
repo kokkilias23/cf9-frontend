@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { IUser } from '../../shared/interfaces/mongo-user.interface'
 
 @Component({
   selector: 'app-step14-user-registration',
@@ -49,4 +50,17 @@ export class Step14UserRegistration {
   });
 
   phone = this.form.get('phone') as FormArray;
+
+  onSubmit(){
+    console.log(this.form.value);
+    const user = this.form.value as IUser;
+    this.userService.registerUser(user).subscribe({
+      next: (response) =>{
+        console.log(response);
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
+  }
 }
