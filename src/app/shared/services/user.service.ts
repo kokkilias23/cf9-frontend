@@ -14,6 +14,11 @@ const API_USER_URL = `${environment.apiURL}/api/users`;
   providedIn: 'root',
 })
 export class UserService {
+  registerUser(user: IUser) {
+    throw new Error('Method not implemented.');
+    return this.http.post<IUser>(`${API_USER_URL}`, user);
+    
+  }
   http:HttpClient = inject(HttpClient);
   router = inject(Router);
 
@@ -44,10 +49,6 @@ export class UserService {
       `${API_AUTH_URL}/login`, 
       data
     )
-  }
-
-  registerUser(user: IUser){
-    return this.http.post<IUser>(`${API_USER_URL}`, user);
   }
 
   logoutUser(){

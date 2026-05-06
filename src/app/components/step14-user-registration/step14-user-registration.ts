@@ -1,12 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { UserService } from '../../shared/services/user.service';
-import { 
-  FormGroup, 
-  FormControl,
-  ReactiveFormsModule, 
-  Validators, 
-  FormArray 
-} from '@angular/forms';
+import {  FormGroup, FormControl,ReactiveFormsModule,  Validators, FormArray} from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
